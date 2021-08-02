@@ -1,0 +1,34 @@
+name: base
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - conda
+  - python=3.6
+  - conda-build
+  - spyder
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - shapely
+  - markdown
+  - gdal
+  - geopandas
+  - cdsapi
+  - netcdf4
+  - opencv
+  - jupyter
+  - scikit-learn
+  - numba
+  - wget
+  - pywget
+  - scikit-image
+  - h5py
+  - hickle
+  - pykrige
+  - sphinx
+  - myst-parser
+  - docutils=0.16
+  - sphinx_rtd_theme
+prefix: /home/insarpc/sw/miniconda3
