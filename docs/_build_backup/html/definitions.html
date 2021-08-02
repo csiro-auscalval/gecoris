@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Definitions &mdash; gecoris 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> gecoris
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sentinel_download.html">Sentinel-1 data download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SNAP_processing.html">SNAP processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="insar_processing.html">InSAR processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corner_reflector_module.html">Corner reflector module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Definitions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#terms">Terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#insar-processing-parameters">InSAR processing parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hdf5-insar-datastack">HDF5 InSAR datastack</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gecoris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Definitions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/definitions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="definitions">
+<h1>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="terms">
+<h2>Terms<a class="headerlink" href="#terms" title="Permalink to this headline">¶</a></h2>
+<p>stack - SLC time series per single orbit track
+PSc - Persistent Scatterer (PS) candidates</p>
+</div>
+<div class="section" id="insar-processing-parameters">
+<h2>InSAR processing parameters<a class="headerlink" href="#insar-processing-parameters" title="Permalink to this headline">¶</a></h2>
+<span id="parms-table"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-text">InSAR processing parameters</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 29%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>A and B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hdf5-insar-datastack">
+<span id="hdf-datastack"></span><h2>HDF5 InSAR datastack<a class="headerlink" href="#hdf5-insar-datastack" title="Permalink to this headline">¶</a></h2>
+<p>Full structure of the HDF datastack:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+    <span class="o">-</span> <span class="n">stack</span>
+        <span class="o">-</span> <span class="p">{</span><span class="n">attrs</span><span class="p">}</span>
+            <span class="o">-</span> <span class="n">masterDate</span>
+            <span class="o">-</span> <span class="n">orbit</span>
+            <span class="o">-</span> <span class="n">wavelength</span>
+            <span class="o">-</span> <span class="n">centerLat</span>
+            <span class="o">-</span> <span class="n">centerLon</span>
+            <span class="o">-</span> <span class="n">centerH</span>
+            <span class="o">-</span> <span class="n">azimuthSpacing</span>
+            <span class="o">-</span> <span class="n">rangeSpacing</span>
+        <span class="o">-</span> <span class="n">slcs</span>
+        <span class="o">-</span> <span class="n">h2ph</span>
+    <span class="o">-</span> <span class="n">psc</span>
+        <span class="o">-</span> <span class="p">{</span><span class="n">attrs</span><span class="p">}</span>
+        <span class="o">-</span> <span class="n">azIdx</span>
+        <span class="o">-</span> <span class="n">rgIdx</span>
+        <span class="o">-</span> <span class="n">azimuth</span>
+        <span class="o">-</span> <span class="nb">range</span>
+        <span class="o">-</span> <span class="n">xyz</span>
+        <span class="o">-</span> <span class="n">plh</span>
+        <span class="o">-</span> <span class="n">incAngle</span>
+        <span class="o">-</span> <span class="n">satvec</span>
+        <span class="o">-</span> <span class="n">SLC</span>
+        <span class="o">-</span> <span class="n">IFG</span>
+        <span class="o">-</span> <span class="n">D_A</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">h2ph</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">aps_phase</span><span class="p">)</span>
+    <span class="o">-</span> <span class="n">psc_B</span>
+        <span class="o">-//-</span>
+    <span class="o">-</span> <span class="n">psc2</span>
+        <span class="o">-//-</span>
+    <span class="o">-</span> <span class="n">psc3</span>
+        <span class="o">-//-</span>
+    <span class="o">-</span> <span class="n">network</span>
+        <span class="o">-</span> <span class="p">{</span><span class="n">attrs</span><span class="p">}</span>
+            <span class="o">-</span> <span class="n">masterDate</span>
+            <span class="o">-</span> <span class="n">dates</span>
+            <span class="o">-</span> <span class="n">m2ph</span>
+            <span class="o">-</span> <span class="n">n_ps</span>
+            <span class="o">-</span> <span class="n">refIdx</span>
+            <span class="o">-</span> <span class="n">refAz</span>
+            <span class="o">-</span> <span class="n">refR</span>
+        <span class="o">-</span> <span class="n">arcs</span>
+        <span class="o">-</span> <span class="n">arcPhase</span>
+        <span class="o">-</span> <span class="n">B1</span>
+        <span class="o">-</span> <span class="n">a_arcs</span>
+        <span class="o">-</span> <span class="n">arcPhase_uw</span>
+        <span class="o">-</span> <span class="n">arc_parms</span>
+        <span class="o">-</span> <span class="n">var</span>
+        <span class="o">-</span> <span class="n">VC_mean</span>
+        <span class="o">-</span> <span class="n">stdRes</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">apsPhase</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">vario_model</span><span class="p">)</span>
+    <span class="o">-</span> <span class="n">network2</span>
+        <span class="o">-//-</span>
+        <span class="o">-</span> <span class="n">a_ps</span>
+        <span class="o">-</span> <span class="n">ps_phase_unw</span>
+        <span class="o">-</span> <span class="n">ps_parms</span>
+        <span class="o">-</span> <span class="n">ps_sig_parms</span>
+        <span class="o">-</span> <span class="n">ps_res</span>
+        <span class="o">-</span> <span class="n">ps_var</span>
+        <span class="o">-</span> <span class="n">ps_displ</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">RPN</span><span class="p">)</span>
+    <span class="o">-</span> <span class="n">network_B</span>
+        <span class="o">-</span> <span class="n">ps_displ</span>
+        <span class="o">-</span> <span class="n">ps_parms</span>
+        <span class="o">-</span> <span class="n">ps_res</span>
+        <span class="o">-</span> <span class="n">ps_sig_parms</span>
+        <span class="o">-</span> <span class="n">ps_var</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Richard Czikhardt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

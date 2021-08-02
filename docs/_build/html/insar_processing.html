@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>InSAR processing &mdash; gecoris 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Corner reflector module" href="corner_reflector_module.html" />
+    <link rel="prev" title="SNAP processing" href="SNAP_processing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> gecoris
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sentinel_download.html">Sentinel-1 data download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SNAP_processing.html">SNAP processing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">InSAR processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#processing-parameters">Processing parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extract-data-from-snap-processing">Extract data from SNAP processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#first-order-network">First-order network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#order-psc">Order PSc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-network">Create network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solve-temporal-ambiguities">Solve temporal ambiguities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integrate-network-spatially">Integrate network spatially</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solve-network">Solve network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#atmospheric-phase-screen-aps-estimation">Atmospheric phase screen (APS) estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#precise-network-solution">Precise network solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#network-densification">Network densification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#geocoding-and-export">Geocoding and export</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="corner_reflector_module.html">Corner reflector module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gecoris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>InSAR processing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/insar_processing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="insar-processing">
+<span id="id1"></span><h1>InSAR processing<a class="headerlink" href="#insar-processing" title="Permalink to this headline">¶</a></h1>
+<p>Main InSAR time series analysis workflow based on the TU Delft geodetic estimation theory.
+This module assumes you have already coregistered SLC stacks of your AOI using SNAP, see <a class="reference internal" href="SNAP_processing.html#snap-processing"><span class="std std-ref">SNAP processing</span></a>.
+All consequent processing steps are contained in the script file <a class="reference download internal" download="" href="_downloads/d1714ad3662c210f49ea5a92b24ad922/insar_main.py"><code class="xref download docutils literal notranslate"><span class="pre">insar_main.py</span></code></a></p>
+<p>We’ll use two gecoris libraries for processing and plotting:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gecoris</span> <span class="kn">import</span> <span class="n">insarUtils</span><span class="p">,</span> <span class="n">plotUtils</span>
+</pre></div>
+</div>
+<div class="section" id="processing-parameters">
+<h2>Processing parameters<a class="headerlink" href="#processing-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Define the processing parameters in <code class="docutils literal notranslate"><span class="pre">parms</span></code> dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">parms</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="s1">&#39;stackId&#39;</span> <span class="p">:</span> <span class="s1">&#39;s1_DSC124&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;stackDir&#39;</span> <span class="p">:</span> <span class="s1">&#39;/data/GUDS/CR_Prievidza/DSC124/&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;subswath&#39;</span> <span class="p">:</span> <span class="s1">&#39;IW1&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;startDate&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+ <span class="c1">#% define aoi:</span>
+ <span class="s1">&#39;min_lon&#39;</span> <span class="p">:</span> <span class="mf">18.60</span><span class="p">,</span>
+ <span class="s1">&#39;max_lon&#39;</span> <span class="p">:</span> <span class="mf">18.74</span><span class="p">,</span>
+ <span class="s1">&#39;min_lat&#39;</span> <span class="p">:</span> <span class="mf">48.70</span><span class="p">,</span>
+ <span class="s1">&#39;max_lat&#39;</span> <span class="p">:</span> <span class="mf">48.79</span><span class="p">,</span>
+ <span class="s1">&#39;aver_h&#39;</span> <span class="p">:</span> <span class="mi">440</span><span class="p">,</span>
+ <span class="c1"># parameters:</span>
+ <span class="s1">&#39;D_A_thr&#39;</span> <span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>       <span class="c1"># Norm. Amplitude Dispersion (NAD) threshold on PS sel.</span>
+ <span class="s1">&#39;oversample_factor&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="c1"># oversampling to detect sub-pix position of PS, keep = 1 to skip</span>
+ <span class="s1">&#39;network&#39;</span> <span class="p">:</span> <span class="s1">&#39;redundant&#39;</span><span class="p">,</span> <span class="c1"># network formation strategy: &#39;redundant&#39;/ &#39;delaunay&#39;</span>
+ <span class="s1">&#39;model&#39;</span> <span class="p">:</span> <span class="s1">&#39;seasonal&#39;</span><span class="p">,</span>   <span class="c1"># func. model to solve ambiguities, &#39;linear&#39; / &#39;seasonal&#39;</span>
+ <span class="s1">&#39;bounds&#39;</span> <span class="p">:</span> <span class="p">{</span>    <span class="c1"># soft estimation bounds</span>
+     <span class="s1">&#39;dH&#39;</span> <span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1"># [m]</span>
+     <span class="s1">&#39;vel&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>  <span class="c1"># [mm/year]</span>
+     <span class="s1">&#39;seasonal&#39;</span><span class="p">:</span> <span class="mi">2</span> <span class="c1"># [mm]</span>
+     <span class="p">},</span>
+ <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>   <span class="c1"># &#39;auto&#39; / &#39;free&#39; / &#39;contraint&#39;</span>
+ <span class="s1">&#39;ref_longitude&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># ref. point coordinates</span>
+ <span class="s1">&#39;ref_latitude&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># only use in case of &#39;constraint&#39; solution</span>
+ <span class="s1">&#39;ref_height&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># ellipsoidal</span>
+ <span class="s1">&#39;APS_flag&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>         <span class="c1"># 0/1 = estimate and remove Atmospheric Phase Screen (APS)</span>
+ <span class="s1">&#39;atmoWindow&#39;</span> <span class="p">:</span> <span class="mi">200</span> <span class="p">,</span>     <span class="c1"># atmo-filter window length in [days]</span>
+ <span class="s1">&#39;densify_flag&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>       <span class="c1"># densify 1st order network by 2nd order PSc</span>
+ <span class="s1">&#39;densify_stdThr&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>   <span class="c1"># [mm], threshold for densification</span>
+ <span class="s1">&#39;plot_flag&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>         <span class="c1"># plots, 0 = none, 1 = sparse, 2 = detailed</span>
+ <span class="c1"># outputs:</span>
+ <span class="s1">&#39;outDir&#39;</span> <span class="p">:</span> <span class="s1">&#39;/data/insarsk/insarsk_workshop/HN/&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Detailed description of the parameters can be found in: <a class="reference internal" href="definitions.html#parms-table"><span class="std std-ref">InSAR processing parameters</span></a>.</p>
+</div>
+</div>
+<div class="section" id="extract-data-from-snap-processing">
+<h2>Extract data from SNAP processing<a class="headerlink" href="#extract-data-from-snap-processing" title="Permalink to this headline">¶</a></h2>
+<p>Extract SNAP-coregistered stack located at <code class="docutils literal notranslate"><span class="pre">parms['stackDir']</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">insarUtils</span><span class="o">.</span><span class="n">prepare_insar_HDF</span><span class="p">(</span><span class="n">parms</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will create two binary <a class="reference external" href="https://www.hdfgroup.org/solutions/hdf5/">HDF5 files</a>  and JSON file in your <code class="docutils literal notranslate"><span class="pre">parms['outDir']</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stack_&lt;stackId&gt;.hdf5</span></code> - containing SLC data stack,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">insar_&lt;stackId&gt;.hdf5</span></code> - containing Persistent Scatter candidates (PSc) selected
+using <code class="docutils literal notranslate"><span class="pre">parms['D_A']</span></code> threshold,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stack_&lt;stackId&gt;.json</span></code> - containing stack metadata.</p></li>
+</ul>
+<p>If the datastack has been already extracted in previous session, only PSc selection is run.
+You can also open an existing HDF datastack:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">insarUtils</span><span class="o">.</span><span class="n">openHDF</span><span class="p">(</span><span class="s1">&#39;insar_&lt;stackId&gt;.hdf5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can list contents of the currently open HDF datastack with <code class="docutils literal notranslate"><span class="pre">data.keys()</span></code> method.</p>
+<p>Full HDF datastack specificiation is in: <a class="reference internal" href="definitions.html#hdf-datastack"><span class="std std-ref">HDF5 InSAR datastack structure</span></a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always close the already open datastack with <code class="docutils literal notranslate"><span class="pre">data.close()</span></code> method before opening new one.</p>
+</div>
+</div>
+<div class="section" id="first-order-network">
+<h2>First-order network<a class="headerlink" href="#first-order-network" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="order-psc">
+<h3>Order PSc<a class="headerlink" href="#order-psc" title="Permalink to this headline">¶</a></h3>
+<p>Split PSc into 1st and 2nd order, based on NAD threshold of 0.25. Optional second argument can be used to modify this default value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">order_psc</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plot the PSc in geographic coordinates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;plot_flag&#39;</span><span class="p">]:</span>
+    <span class="n">plotUtils</span><span class="o">.</span><span class="n">plot_psc</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc&#39;</span><span class="p">],</span>
+                       <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/psc1_NAD.png&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;psc_B&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">plotUtils</span><span class="o">.</span><span class="n">plot_psc</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc_B&#39;</span><span class="p">],</span>
+                       <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/psc2_NAD.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-network">
+<span id="id2"></span><h3>Create network<a class="headerlink" href="#create-network" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network/arcs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">insarUtils</span><span class="o">.</span><span class="n">createNetwork</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc&#39;</span><span class="p">],</span>
+                                                <span class="n">data</span><span class="p">[</span><span class="s1">&#39;stack&#39;</span><span class="p">],</span>
+                                                <span class="n">n_type</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">],</span>
+                                                <span class="n">plotFlag</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;plot_flag&#39;</span><span class="p">],</span>
+                                                <span class="n">outDir</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="solve-temporal-ambiguities">
+<h3>Solve temporal ambiguities<a class="headerlink" href="#solve-temporal-ambiguities" title="Permalink to this headline">¶</a></h3>
+<p>Ambiguities are estimated over all network arcs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">temporalAmbiguity</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;stack&#39;</span><span class="p">],</span>
+                             <span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc&#39;</span><span class="p">],</span>
+                             <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">],</span>
+                             <span class="n">model</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">],</span>
+                             <span class="n">bounds</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;bounds&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">bounds</span></code> parameter defines the dictionary of soft estimation bound for unknown parameters
+(residual height, displacement model coefficient), and is site and deformation phenomena-specific.</p>
+</div>
+<p>Overall quality statistics of the estimation can be plotted using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;plot_flag&#39;</span><span class="p">]:</span>
+    <span class="n">plotUtils</span><span class="o">.</span><span class="n">plot_network_quality</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">],</span>
+                                   <span class="n">outDir</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Unreliable (outlying) arcs are then removed automatically, or using specific threshold on the
+standard deviation of residuals (RMSE) as an optional second argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Outleir removal step also automatically removes points that might become isolated by unreliable arcs removal
+in order to attain the network consistency.</p>
+</div>
+</div>
+<div class="section" id="integrate-network-spatially">
+<h3>Integrate network spatially<a class="headerlink" href="#integrate-network-spatially" title="Permalink to this headline">¶</a></h3>
+<p>First, define the reference datum:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">setRefPoint</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc2&#39;</span><span class="p">],</span>
+                       <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                       <span class="n">method</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;reference&#39;</span><span class="p">],</span>
+                       <span class="n">refLon</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;ref_longitude&#39;</span><span class="p">],</span>
+                       <span class="n">refLat</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;ref_latitude&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter can be set to:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'auto'</span></code> - reference point choosen automatically in barycentre and under good coherence conditions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'constraint'</span></code> - reference point selected nearest to the given coordinates (e.g. of a corner reflector)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'free'</span></code> - datum-free network solution (equivalent to taking the overall average as reference)</p></li>
+</ul>
+<p>Secondly, check the network conditioning under the defined reference by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">network_cond</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step automatically removes isolated networks that might cause ill-conditioning of the estimation.</p>
+</div>
+<p>Finally, spatially integrate ambiguities:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">spatialAmbiguity</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="solve-network">
+<h3>Solve network<a class="headerlink" href="#solve-network" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">solve_network</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Plot estimated parameters per points:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;plot_flag&#39;</span><span class="p">]:</span>
+    <span class="n">plotUtils</span><span class="o">.</span><span class="n">plot_network_parms</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                                 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc2&#39;</span><span class="p">],</span>
+                                 <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/parms_1st.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="atmospheric-phase-screen-aps-estimation">
+<h2>Atmospheric phase screen (APS) estimation<a class="headerlink" href="#atmospheric-phase-screen-aps-estimation" title="Permalink to this headline">¶</a></h2>
+<p>Estimate and remove APS on the solved first-order network and re-run all the previous steps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;APS_flag&#39;</span><span class="p">]:</span>
+    <span class="n">insarUtils</span><span class="o">.</span><span class="n">APS</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc2&#39;</span><span class="p">],</span>
+                   <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                   <span class="n">data</span><span class="p">[</span><span class="s1">&#39;stack&#39;</span><span class="p">],</span>
+                   <span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc&#39;</span><span class="p">],</span>
+                   <span class="n">atmoWindow</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;atmoWindow&#39;</span><span class="p">],</span>
+                   <span class="n">plotFlag</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;plot_flag&#39;</span><span class="p">],</span>
+                   <span class="n">apsDir</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/aps/&#39;</span><span class="p">)</span>
+    <span class="c1">#% 2nd iteration after APS:</span>
+    <span class="n">insarUtils</span><span class="o">.</span><span class="n">temporalAmbiguity</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;stack&#39;</span><span class="p">],</span>
+                                 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc&#39;</span><span class="p">],</span>
+                                 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                                 <span class="n">model</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">],</span>
+                                 <span class="n">bounds</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;bounds&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;plot_flag&#39;</span><span class="p">]:</span>
+        <span class="n">plotUtils</span><span class="o">.</span><span class="n">plot_network_quality</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                                       <span class="n">outDir</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">])</span>
+    <span class="c1">#% 2nd outlier removal:</span>
+    <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">]</span>
+    <span class="n">insarUtils</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="c1">#% ref. point (former):</span>
+    <span class="k">if</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;reference&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;free&#39;</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;refIdx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">insarUtils</span><span class="o">.</span><span class="n">ref_coords2idx</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc2&#39;</span><span class="p">],</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;refAz&#39;</span><span class="p">],</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;refR&#39;</span><span class="p">])</span>
+    <span class="c1">#% spatial ambiguity:</span>
+    <span class="n">insarUtils</span><span class="o">.</span><span class="n">spatialAmbiguity</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>APS estimation is a necesarry step for processing areas larger than approximatelly 10 x 10 km.
+Note however that APS estimation can be biased if using very small AOI.
+The <code class="docutils literal notranslate"><span class="pre">atmoWindow</span></code> parameter is long-wavelength signal filter window length (in days).
+This parameter should reflect the temporal length and sampling of
+the dataset. Too small values alias other (displacement) signals,
+whereas too large values result in inefficient filtering and
+consequently biased APS estimation.</p>
+</div>
+</div>
+<div class="section" id="precise-network-solution">
+<h2>Precise network solution<a class="headerlink" href="#precise-network-solution" title="Permalink to this headline">¶</a></h2>
+<p>Precise network solution includes APS correction and refined height-to-phase conversion factors:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">getPreciseH2PH</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc2&#39;</span><span class="p">],</span>
+                          <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">],</span>
+                          <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;stackId&#39;</span><span class="p">])</span>
+<span class="n">insarUtils</span><span class="o">.</span><span class="n">solve_network_precise</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                                 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc2&#39;</span><span class="p">],</span>
+                                 <span class="n">model</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Remove reference phase noise (RPN) and solve again:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">remove_RPN</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                           <span class="n">plotFlag</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;plot_flag&#39;</span><span class="p">],</span>
+                           <span class="n">outDir</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">])</span>
+<span class="n">insarUtils</span><span class="o">.</span><span class="n">solve_network_precise</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                                 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc2&#39;</span><span class="p">],</span>
+                                 <span class="n">model</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Plot refined network parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;plot_flag&#39;</span><span class="p">]:</span>
+    <span class="n">plotUtils</span><span class="o">.</span><span class="n">plot_network_parms</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;network2&#39;</span><span class="p">],</span>
+                                 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc2&#39;</span><span class="p">],</span>
+                                 <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/parms_2nd.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="network-densification">
+<h2>Network densification<a class="headerlink" href="#network-densification" title="Permalink to this headline">¶</a></h2>
+<p>Densify first-order PS network by second-order PS candidates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;densify_flag&#39;</span><span class="p">]:</span>
+    <span class="n">insarUtils</span><span class="o">.</span><span class="n">getPreciseH2PH</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;psc_B&#39;</span><span class="p">],</span>
+                              <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">],</span>
+                              <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;stackId&#39;</span><span class="p">])</span>
+    <span class="n">insarUtils</span><span class="o">.</span><span class="n">densify_network</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                               <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                               <span class="n">mode_thr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                               <span class="n">std_thr</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;densify_stdThr&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Parameter <code class="docutils literal notranslate"><span class="pre">k</span></code> defines number of nearest first-order PS to connect the second-order PSc to,
+<code class="docutils literal notranslate"><span class="pre">mode_thr</span></code> is a maximum of ambiguity misclosures in the solution, and
+<code class="docutils literal notranslate"><span class="pre">std_thr</span></code> is a threshold on standard deviation of residuals (RMSE) of the second-order PSc.</p>
+</div>
+</div>
+<div class="section" id="geocoding-and-export">
+<h2>Geocoding and export<a class="headerlink" href="#geocoding-and-export" title="Permalink to this headline">¶</a></h2>
+<p>Perform geocoding refinement (using estimated residual heights and sub-pixel positions):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insarUtils</span><span class="o">.</span><span class="n">fix_geocoding</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">parms</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Export results to standard CSV:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">outCSV</span> <span class="o">=</span> <span class="n">parms</span><span class="p">[</span><span class="s1">&#39;outDir&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/insar_&#39;</span><span class="o">+</span><span class="n">parms</span><span class="p">[</span><span class="s1">&#39;stackId&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span>
+<span class="n">insarUtils</span><span class="o">.</span><span class="n">HDF2csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">outCSV</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you desire to repeat the processing with different parameters, it is not necesarry to perform data extraction again.
+Simply call <code class="docutils literal notranslate"><span class="pre">insarUtils.resetNetwork(data)</span></code> and continue from <a class="reference internal" href="#create-network"><span class="std std-ref">Create network</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="corner_reflector_module.html" class="btn btn-neutral float-right" title="Corner reflector module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SNAP_processing.html" class="btn btn-neutral float-left" title="SNAP processing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Richard Czikhardt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

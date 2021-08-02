@@ -1,0 +1,10 @@
+{
+"project" : 'PEM2',
+"stationLog" : '/home/rc/CR_Partizanske/reflectors.json',
+"stackLog" : '/home/rc/CR_Partizanske/stacks.json',
+"outDir" : '/home/rc/CR_Partizanske/gecoris/',
+"precisePosFlag" : 1,           # 0 = approx. / 1 = precise positioning
+"plotFlag" : 1,                 # 0 = no plots / 1 = sparse plots / 2 = detailed plots
+"atmoFlag" : 0,	                # 0 / 1 = use external models for atmo. delay correction
+"ovsFactor" : 32                # FFT oversampling factor
+}

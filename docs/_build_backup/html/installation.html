@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; gecoris 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sentinel-1 data download" href="Sentinel_download.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> gecoris
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-miniconda">1. Install miniconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-python-environment">2. Create Python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-python-dependencies">3. Install Python dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-snap-including-sentinel-1-toolbox">4. Install SNAP including Sentinel-1 toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-snap-with-python">5. Configure SNAP with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-development-version-of-gecoris-and-setup">6. Download development version of gecoris and setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-requirements">Additional requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sentinel_download.html">Sentinel-1 data download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SNAP_processing.html">SNAP processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="insar_processing.html">InSAR processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corner_reflector_module.html">Corner reflector module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gecoris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/installation.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>GECORIS is tested on GNU/Linux and partly on MS Windows 10. Recommended minimum setup:</p>
+<ul class="simple">
+<li><p><strong>Python 3.6</strong></p></li>
+<li><p><strong>SNAP 8.0</strong></p></li>
+</ul>
+<p>We recommend using <a class="reference external" href="https://docs.conda.io/en/latest/index.html">conda</a> environment to install gecoris along with SNAP and all Python dependencies.</p>
+<div class="section" id="install-miniconda">
+<h2>1. Install <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a><a class="headerlink" href="#install-miniconda" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="create-python-environment">
+<h2>2. Create Python environment<a class="headerlink" href="#create-python-environment" title="Permalink to this headline">¶</a></h2>
+<p>For SNAP, Python =&lt;3.6 is required:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n gecoris <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
+conda activate gecoris
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-python-dependencies">
+<h2>3. Install Python dependencies<a class="headerlink" href="#install-python-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install numpy scipy matplotlib pandas shapely requests scikit-image <span class="nv">h5py</span><span class="o">=</span><span class="m">2</span>.10
+conda install -c conda-forge gdal netcdf4
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-snap-including-sentinel-1-toolbox">
+<h2>4. Install <a class="reference external" href="http://step.esa.int/main/download/snap-download/">SNAP</a> including Sentinel-1 toolbox<a class="headerlink" href="#install-snap-including-sentinel-1-toolbox" title="Permalink to this headline">¶</a></h2>
+<p><em>Note for GNU/Linux users:</em></p>
+<p>Install additional dependency:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libgfortran3 libgfortran5 python3-distutils
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">libgfortran3</span></code> was discontinued on Ubuntu 20 based distros. Must be downloaded and installed manually from <a class="reference external" href="https://packages.ubuntu.com/bionic/amd64/libgfortran3/download">here</a> with additional <a class="reference external" href="https://packages.ubuntu.com/bionic/amd64/gcc-6-base/download">gcc dependency</a>.</p>
+</div>
+<div class="section" id="configure-snap-with-python">
+<h2>5. Configure SNAP with Python<a class="headerlink" href="#configure-snap-with-python" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;snap-install-dir&gt;/bin
+./snappy-conf &lt;python-exe&gt;
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;snap-install-dir&gt;</span></code> is SNAP installation directory and <code class="docutils literal notranslate"><span class="pre">&lt;python-exe&gt;</span></code> is full path to conda Python binaries (<code class="docutils literal notranslate"><span class="pre">&lt;miniconda-install-dir&gt;/envs/gecoris/python</span></code> on Linux).</p>
+<p>Install <code class="docutils literal notranslate"><span class="pre">snappy</span></code> package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;snappy-dir&gt;
+python setup.py install
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;snappy-dir&gt;</span></code> is package directory (<code class="docutils literal notranslate"><span class="pre">$HOME/.snap/snap-python/snappy</span></code> on Linux).</p>
+<p>More detailed instructions can be found <a class="reference external" href="https://senbox.atlassian.net/wiki/spaces/SNAP/pages/50855941/Configure+Python+to+use+the+SNAP-Python+snappy+interface">here</a>.</p>
+</div>
+<div class="section" id="download-development-version-of-gecoris-and-setup">
+<h2>6. Download development version of gecoris and setup<a class="headerlink" href="#download-development-version-of-gecoris-and-setup" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://memorid@bitbucket.org/memorid/gecoris.git
+</pre></div>
+</div>
+<p>Edit PATH environmental variables:</p>
+<ul class="simple">
+<li><p>on GNU/Linux, append to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">gecoris_HOME</span><span class="o">=</span>~/sw/gecoris
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PYTHONPATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">gecoris_HOME</span><span class="si">}</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">gecoris_HOME</span><span class="si">}</span>/gecoris
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>on WINDOWS in command prompt:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setx</span> <span class="n">gecoris_HOME</span> <span class="n">C</span><span class="p">:</span>\<span class="n">sw</span>\<span class="n">gecoris</span> <span class="o">/</span><span class="n">m</span>
+<span class="n">setx</span> <span class="n">PYTHONPATH</span> <span class="s2">&quot;%PYTHONPATH%;</span><span class="si">%g</span><span class="s2">ecoris_HOME%&quot;</span> <span class="o">/</span><span class="n">m</span>
+<span class="n">setx</span> <span class="n">PATH</span> <span class="s2">&quot;%PATH%;</span><span class="si">%g</span><span class="s2">ecoris_HOME%\gecoris&quot;</span> <span class="o">/</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-requirements">
+<h2>Additional requirements<a class="headerlink" href="#additional-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>For Sentinel-1 SLC download routines: <a class="reference external" href="https://aria2.github.io/">aria2c</a> or <a class="reference external" href="https://sentinelsat.readthedocs.io/en/stable/">sentinelsat</a></p></li>
+</ul>
+<p>For precise atmospheric delay corrections in positioning module</p>
+<ul class="simple">
+<li><p>CDS API is needed to auto-download ERA5 ECMWF data:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">cdsapi</span>
+</pre></div>
+</div>
+<p>​		Then, follow instructions to setup:</p>
+<p>​		https://cds.climate.copernicus.eu/api-how-to</p>
+<ul class="simple">
+<li><p>We use IONEX data from CDDIS. Due to new NASA data access policy, one needs to prepare <code class="docutils literal notranslate"><span class="pre">.netrc</span></code> file in his home dir (<code class="docutils literal notranslate"><span class="pre">~</span></code>):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">machine</span> <span class="n">urs</span><span class="o">.</span><span class="n">earthdata</span><span class="o">.</span><span class="n">nasa</span><span class="o">.</span><span class="n">gov</span> <span class="n">login</span> <span class="o">&lt;</span><span class="n">your_earthdata_login</span><span class="o">&gt;</span> <span class="n">password</span> <span class="o">&lt;</span><span class="n">your_earthdata_pass</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Follow instructions here:</p>
+<p>https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Sentinel_download.html" class="btn btn-neutral float-right" title="Sentinel-1 data download" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Richard Czikhardt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

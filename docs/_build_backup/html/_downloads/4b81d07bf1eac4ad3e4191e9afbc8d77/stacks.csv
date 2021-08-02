@@ -1,0 +1,3 @@
+sensor,id,process_dir,subswath,type
+Sentinel-1,s1_dsc153,/data/GUDS/CR_VYCHOD/DSC153/,IW2,raw
+Sentinel-1,s1_asc102,/data/GUDS/CR_VYCHOD/ASC102/,IW2,raw

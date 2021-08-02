@@ -1,0 +1,18 @@
+{
+  'stackDir': '/data/GUDS/CR_Prievidza/DSC51/',
+  'stackId': 's1_dsc51',
+  'subswath': 'IW3',
+  'outDir': '/data/GUDS/CR_Prievidza/gecoris/insar/',
+  'startDate': '20200219',
+  'min_lat': 48.705,
+  'max_lat': 48.813,
+  'min_lon': 18.604,
+  'max_lon': 18.734,
+  'aver_h': 465.0,
+  # parameters:
+  'D_A_thr' : 0.25,       # Norm. Amplitude Dispersion (NAD) threshold on PS sel.
+  'model' : 'seasonal',   # func. model to solve ambiguities, 'linear' / 'seasonal'
+  'reference' : 'auto',   # 'auto' / 'free' / 'contraint' (single CR)
+  'APS_flag' : 1,         # 0/1 = estimate and remove Atmospheric Phase Screen (APS)
+  'plot_flag': 1,         # plots, 0 = none, 1 = sparse, 2 = detailed
+}

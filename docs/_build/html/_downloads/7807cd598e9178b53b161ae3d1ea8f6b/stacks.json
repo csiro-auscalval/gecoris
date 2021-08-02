@@ -1,0 +1,12 @@
+{
+"stacks": [
+{
+  "id": "s1_dsc124",
+  "dataPath": "/home/rc/CR_Partizanske/new/DSC124/",
+  "sensor": "Sentinel-1",
+  "subswath": "IW1",
+  "type": "raw"
+  }
+]
+}
+
