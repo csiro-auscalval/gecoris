@@ -8,6 +8,10 @@ Main InSAR time series analysis workflow based on the TU Delft geodetic estimati
 This module assumes you have already coregistered SLC stacks of your AOI using SNAP, see :ref:`snap_processing`.
 All consequent processing steps are contained in the script file :download:`insar_main.py <../gecoris/insar_main.py>`
 
+.. warning:: 
+
+   Currently, this is a limited access feature, see :ref:`intro`.
+
 We'll use two gecoris libraries for processing and plotting:
 
 .. code:: python

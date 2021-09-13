@@ -1,3 +1,5 @@
+.. _intro:
+
 ************
 Introduction
 ************
@@ -32,7 +34,8 @@ Support
 
 .. note:: 
    
-   If you would like a support and debugging, please contact me via czikhardt.richard@gmail.com.
+   Currently, the :ref:`insar_processing` is limited access feature. 
+   If you would like access, support, and debugging, please contact me via czikhardt.richard@gmail.com.
 
 
 How to cite
