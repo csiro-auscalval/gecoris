@@ -26,6 +26,8 @@ Contents
    
    insar_processing.rst
    
+   visualization.rst
+   
    corner_reflector_module.rst
    
    examples.rst

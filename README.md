@@ -17,11 +17,9 @@ Full [documentation lives on readthedocs.](https://gecoris.readthedocs.io/en/lat
 
 THIS IS A RESEARCH CODE PROVIDED TO YOU "AS IS" WITH NO WARRANTIES OF CORRECTNESS. USE AT YOUR OWN RISK.
 
-If you would like a support/debugging, please contact me via czikhardt.richard@gmail.com
+Currently, the [InSAR module](https://gecoris.readthedocs.io/en/latest/insar_processing.html) is limited access feature. 
 
-Contributions are much appreciated!
-
-*Richard Czikhardt* 
+If you would like an access, support/debugging, please contact me via czikhardt.richard@gmail.com
 
 
 

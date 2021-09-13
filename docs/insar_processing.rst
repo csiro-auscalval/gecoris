@@ -64,6 +64,9 @@ Define the processing parameters in ``parms`` dictionary:
 Extract data from SNAP processing
 =================================
 
+Creating new dataset
+--------------------
+
 Extract SNAP-coregistered stack located at ``parms['stackDir']``:
 
 .. code:: python
@@ -95,6 +98,15 @@ You can also open an existing HDF datastack:
 .. warning::
 
    Always close the already open datastack with ``data.close()`` method before opening new one.
+
+Updating existing dataset with new SLCs
+---------------------------------------
+
+If you have existing HDF datastack in ``parms['stackDir']`` and only want to update it with new SLC images:
+
+.. code:: python
+
+    data = insarUtils.prepare_insar_HDF(parms, update=True)
 
 
 First-order network
@@ -348,6 +360,12 @@ Export results to standard CSV:
    outCSV = parms['outDir']+'/insar_'+parms['stackId']+'.csv'
    insarUtils.HDF2csv(data, outCSV)
 
+
+To visualize the results, see :ref:`visualization`.
+
+.. note:: 
+
+   It's easy to build your own data exporter. See for example custom modification ``insarUtils.HDF2csv_remotio()``, exporting to https://remotio.space CSV standard instead.
 
 .. warning:: 
 

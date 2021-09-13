@@ -68,6 +68,10 @@ where ``<snappy-dir>`` is package directory (e.g., ``$HOME/.snap/snap-python/sna
 
 More detailed instructions can be found `here <https://senbox.atlassian.net/wiki/spaces/SNAP/pages/50855941/Configure+Python+to+use+the+SNAP-Python+snappy+interface>`_.
 
+.. warning:: 
+
+   Keep the SNAP updated either via GUI or using the supplied ``update_snap.sh`` script.
+
 6. Download development version of gecoris and setup
 ----------------------------------------------------
 

@@ -41,8 +41,8 @@ Define full paths to the results of InSAR analysis:
 
    stack_ids = [
        's1_asc175',
-       's1_dsc51'.
-       's1_dsc124]
+       's1_dsc51',
+       's1_dsc124']
 
 Extract InSAR time series for reflectors:
 

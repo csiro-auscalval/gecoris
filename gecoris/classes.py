@@ -1422,6 +1422,12 @@ class Stack:
                 for k in removeDates:
                     del self.metadata[k]
 
+    def remove_date(self, acqDates):
+        if hasattr(self, 'acqDates'):
+            remove_idx = [self.acqDates.index(d) for d in acqDates]
+            self.remove_idx(remove_idx)
+
+
     @property
     def nSLC(self):
         if self._nSLC is None:
