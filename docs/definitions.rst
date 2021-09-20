@@ -13,7 +13,18 @@ PSc
 
 RCS
    Radar Cross Section
-        
+
+
+Corner reflector geometry
+-------------------------
+
+.. figure:: _static/CR_geometry_definitions.png
+    :align: center
+    :figwidth: 600px
+
+    Corner reflector geometry as defined in :download:`reflectors.json <../templates/reflectors.json>` template file.
+
+    
 InSAR processing parameters
 ---------------------------
 
@@ -115,4 +126,6 @@ Full structure of the HDF datastack::
 CSV exchange standard for InSAR
 -------------------------------
 
-TBA
+.. figure:: _static/csv_specification.png
+    :align: center
+    :figwidth: 600px

@@ -6,7 +6,6 @@ InSAR processing
 ----------------
 
 
-
 Forcing CR with unstable RCS into PS network
 --------------------------------------------
 
@@ -70,3 +69,34 @@ Optionally check for unwrapping errors:
    plt.plot(data['network3']['ps_displ'][0])
    plt.plot(data['network3']['ps_displ'][0]-np.pi)
    plt.plot(data['network3']['ps_displ'][0]+np.pi)
+
+
+Removing noisy epochs from InSAR processing
+-------------------------------------------
+
+First we perform full InSAR processing of our network.
+
+Then, let's identify problematic epochs, e.g. exceeding noise variance over 40deg:
+
+.. code:: python
+
+   thr = 40 
+   idx = np.where(data['network']['VC_mean'][:]*180/np.pi > thr)
+   bad_epochs = data['stack']['slcs'][idx]
+   
+Here we identify epoch ``20210211`` as a problematic one. Let's remove it from the stack:
+
+.. code:: python
+
+   stackData = insarUtils.openHDF('/data/GUDS/RNV/insar_RNV_202109/stack_DSC153.hdf5')
+   del stackData['SLC']['20210211']
+
+And we also remove it from metadata:
+
+.. code:: python
+
+   stack = ioUtils.fromJSON('/data/GUDS/RNV/insar_RNV_202109/stack_ASC102.json')
+   stack.remove_date(['20210211'])
+   ioUtils.toJSON(stack, parms['outDir'])
+
+Now repeat the processing starting with generating new insar HDF.
