@@ -15,6 +15,8 @@ RCS
    Radar Cross Section
 
 
+.. _cr_geometry_def:
+
 Corner reflector geometry
 -------------------------
 

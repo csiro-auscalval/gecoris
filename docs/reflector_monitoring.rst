@@ -33,6 +33,7 @@ For networks containing many reflectors, ``csv`` input format can be used instea
 - :download:`reflectors.csv <../templates/reflectors.csv>`
 - :download:`stacks.csv <../templates/stacks.csv>`
 
+The geometry parameters of corner reflectors are explained in :ref:`cr_geometry_def`.
 
 Time series analysis
 --------------------
