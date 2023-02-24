@@ -8,5 +8,5 @@ setup(
     },
     url='https://github.com/csiro-auscalval/gecoris',
     setup_requires=[],
-    packages=['geocoris']
+    packages=['gecoris']
 )
