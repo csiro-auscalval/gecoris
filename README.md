@@ -1,4 +1,7 @@
 # GECORIS
+
+This repository was forked from Bitbucket: [https://bitbucket.org/memorid/gecoris/src/public/](https://bitbucket.org/memorid/gecoris/src/public/)
+
 [![Documentation Status](https://readthedocs.org/projects/gecoris/badge/?version=latest)](https://gecoris.readthedocs.io/en/latest/?badge=latest)
 
 Geodetic Corner Reflector (In)SAR Toolbox - a Python framework for integrated analysis of satellite SAR time series of natural and artificial radar reflectors, such as corner reflectors or radar transponders. 
