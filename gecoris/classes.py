@@ -42,7 +42,7 @@ from matplotlib import dates
 formatter = dates.DateFormatter('%m-%y')
 # gecoris packages:
 from gecoris import geoUtils, crUtils, radarUtils, s1Utils
-from gecoris import plotUtils, atmoUtils, insarUtils
+from gecoris import plotUtils, atmoUtils
 # constants:
 speedOfLight = 299792458.0
 # types:
